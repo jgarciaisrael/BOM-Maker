@@ -17,7 +17,7 @@ def extract_columns_from_file(uploaded_file):
 
     return extracted
 
-st.title("Excel Column Extractor")
+st.title("VIVO BOM Extractor")
 
 uploaded_file = st.file_uploader("Upload Excel File (.xlsx)", type=["xlsx"])
 
@@ -38,3 +38,4 @@ if uploaded_file is not None:
         file_name="extracted_BOM.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
