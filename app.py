@@ -7,13 +7,13 @@ def extract_columns_from_file(uploaded_file):
     df = pd.read_excel(uploaded_file, header=None, skiprows=5)
 
     # Extract columns B, G, and H (1, 6, 7 in zero-based indexing)
-    extracted = df.iloc[:, [1, 6, 7]]
+    extracted = df.iloc[:, [1, 6, 7, 18, 25]]
 
     # Drop rows where all values are empty
     extracted = extracted.dropna(how="all")
 
     # Rename columns
-    extracted.columns = ["Item Name", "MFR SKU", "QTY"]
+    extracted.columns = ["Item Name", "MFR SKU", "QTY", "Tracking to Vivo", "Tracking to Site"]
 
     return extracted
 
@@ -38,4 +38,5 @@ if uploaded_file is not None:
         file_name="extracted_BOM.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
 
